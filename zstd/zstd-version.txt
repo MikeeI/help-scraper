@@ -1,1 +1,1 @@
-*** zstd command line interface 64-bits v1.5.2, by Yann Collet ***
+*** zstd command line interface 64-bits v1.4.5, by Yann Collet ***
