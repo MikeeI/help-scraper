@@ -34,46 +34,4 @@ jobs:
         timestamp=$(date -u)
         git commit -m "sqlite-utils: ${timestamp}" || exit 0
         git push
-    - name: Scrape GitHub GraphQL API schema
-      run: |-
-        mkdir -p github
-        npx get-graphql-schema https://api.github.com/graphql \
-          -h 'Authorization=Bearer ${{ secrets.GITHUB_TOKEN }}' > github/github.graphql
-    - name: Commit and push if it changed
-      run: |-
-        git add -A
-        timestamp=$(date -u)
-        git commit -m "GitHub: ${timestamp}" || exit 0
-        git push
-    - name: Scrape Vercel
-      run: |-
-        python vercel_commands.py
-    - name: Commit and push if it changed
-      run: |-
-        git add -A
-        timestamp=$(date -u)
-        git commit -m "Vercel: ${timestamp}" || exit 0
-        git push
-    - name: Scrape Fly
-      run: |-
-        ./fly.sh
-        # Grab the GraphQL schema too
-        npx get-graphql-schema https://api.fly.io/graphql > flyctl/fly.graphql
-    - name: Commit and push if it changed
-      run: |-
-        git add -A
-        timestamp=$(date -u)
-        git commit -m "Fly: ${timestamp}" || exit 0
-        git push
-    - name: Scrape AWS
-      run: |-
-        python -m pip install -U awscli
-        python -m awscli --version > aws/aws-version.txt
-        cat aws/aws-version.txt
-        python aws_commands.py
-    - name: Commit and push if it changed
-      run: |-
-        git add -A
-        timestamp=$(date -u)
-        git commit -m "AWS: ${timestamp}" || exit 0
-        git push
+    
