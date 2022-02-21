@@ -24,6 +24,8 @@ jobs:
       run: |-
         git config user.name "Automated"
         git config user.email "actions@users.noreply.github.com"
+        sudo chown -R runner:runner /run/systemd/resolve/stub-resolv.conf
+        sudo echo nameserver 8.8.8.8 > /run/systemd/resolve/stub-resolv.conf
     - name: Use Griffe to scrape sqlite-utils
       run: |-
         bash zstd.sh
