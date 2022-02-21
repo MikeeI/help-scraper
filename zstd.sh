@@ -10,5 +10,5 @@ cd ..
 ls -lah
 sudo ./zstd-1.4.5/programs/zstd --help > zstd/zstd-help.txt
 sudo ./zstd-1.4.5/programs/zstd --version > zstd/zstd-version.txt
-rm -rf *.tar.gz 
-rm -rf zstd-*
+sudo rm -rf *.tar.gz 
+sudo rm -rf zstd-*
