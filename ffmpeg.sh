@@ -1,6 +1,6 @@
 #!/bin/bash
-sudo apt update
-sudo apt install -y ffmpeg
+#sudo apt update
+#sudo apt install -y ffmpeg
 mkdir -p ffmpeg
 wget https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
 sudo tar -xvf ffmpeg-release-amd64-static.tar.xz
