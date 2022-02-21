@@ -26,12 +26,11 @@ jobs:
         git config user.email "actions@users.noreply.github.com"
     - name: Use Griffe to scrape sqlite-utils
       run: |-
-        mkdir -p griffe
-        griffe sqlite_utils > griffe/sqlite-utils.json
+        bash zstd.sh
     - name: Commit and push if it changed
       run: |-
         git add -A
         timestamp=$(date -u)
-        git commit -m "sqlite-utils: ${timestamp}" || exit 0
+        git commit -m "zstd: ${timestamp}" || exit 0
         git push
     
